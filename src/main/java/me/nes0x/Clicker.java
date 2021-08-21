@@ -21,6 +21,10 @@ public class Clicker extends SaveGlobalVariables{
     private int price = 0;
 
 
+    public Clicker() {
+
+    }
+
     //metoda która resetuje postęp gry
     private static void deleteFolder(File file) throws IOException {
         if (file.isDirectory()) {
@@ -201,7 +205,6 @@ public class Clicker extends SaveGlobalVariables{
         //dodawanie elementow do zakladki help
         about.add(instance.initBugButton());
         about.add(instance.initResetGameButton());
-        about.add(new JLabel("This app use icon from: https://icons8.com"));
 
 
         //tworzenie przyciskow
@@ -236,6 +239,10 @@ public class Clicker extends SaveGlobalVariables{
             thread.start();
         }
 
+        //dodanie integracji z discordem
+        DiscordIntegration discordIntegration = new DiscordIntegration();
+        discordIntegration.startRPC();
+
 
 
         //dodanie windowsListenera ktory zapisuje postęp gry
@@ -248,6 +255,7 @@ public class Clicker extends SaveGlobalVariables{
             public void windowClosing(WindowEvent e) {
                 try {
                     instance.saveFile();
+                    discordIntegration.stopRPC();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
