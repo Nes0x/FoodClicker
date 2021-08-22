@@ -167,6 +167,7 @@ public class Clicker extends SaveGlobalVariables{
 
         //ustawianie
         LafManager.install(new DarculaTheme());
+        new CheckIfThisRunning();
         frame = new JFrame();
         moneyLabel = new JLabel("Your money: " + getMoney());
         earnLabel = new JLabel("You earn: " + getEarn() + " $ for click");
@@ -254,6 +255,7 @@ public class Clicker extends SaveGlobalVariables{
                 try {
                     instance.saveFile();
                     discordIntegration.stopRPC();
+                    CheckIfThisRunning.getFile().delete();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }

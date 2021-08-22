@@ -20,7 +20,7 @@ public class ChangelogPastebin {
             return;
         }
 
-        JTextArea text = new JTextArea(10, 10);
+        JTextArea text = new JTextArea(20, 30);
         text.setText(pasteResponse.get());
         text.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(text);

@@ -1,7 +1,6 @@
 package me.nes0x;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.net.URI;
@@ -21,7 +20,7 @@ public class UpdateInformation {
         int i = bufferedInputStream.read();
         characterArrayList.add((char) i);
 
-        if (!characterArrayList.get(0).equals('2')) {
+        if (!characterArrayList.get(0).equals('3')) {
             int result = JOptionPane.showConfirmDialog(
                     Clicker.getFrame(),
                     "New version of FoodClicker! " + characterArrayList.get(0) + ".0" + "\nDo you want to update it?",
