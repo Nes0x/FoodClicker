@@ -8,12 +8,12 @@ public class DiscordIntegration {
     private DiscordRPC rpc = DiscordRPC.INSTANCE;
 
     public void startRPC() {
-        String applicationId = "secret :DDD";
+        String applicationId = "";
         DiscordEventHandlers handlers = new DiscordEventHandlers();
         rpc.Discord_Initialize(applicationId, handlers, true, null);
         DiscordRichPresence presence = new DiscordRichPresence();
         presence.startTimestamp = System.currentTimeMillis() / 1000;
-        presence.largeImageKey = "secret :DDDD";
+        presence.largeImageKey = "";
         presence.largeImageText = "FoodClicker <3";
         rpc.Discord_UpdatePresence(presence);
 

@@ -4,12 +4,12 @@ import com.github.weisj.darklaf.LafManager;
 import com.github.weisj.darklaf.theme.DarculaTheme;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 
 public class Clicker extends SaveGlobalVariables{
@@ -163,21 +163,15 @@ public class Clicker extends SaveGlobalVariables{
 
 
     //Main
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, URISyntaxException {
+
         //ustawianie
+        LafManager.install(new DarculaTheme());
         frame = new JFrame();
         moneyLabel = new JLabel("Your money: " + getMoney());
         earnLabel = new JLabel("You earn: " + getEarn() + " $ for click");
         autoClickLabel = new JLabel("You earn: " + getAutoClick() + " $/s");
         run = false;
-
-        //zmienianie czcionki na szara
-        moneyLabel.setForeground(Color.gray);
-        earnLabel.setForeground(Color.gray);
-        autoClickLabel.setForeground(Color.gray);
-
-        //ustawianie layoutu
-        LafManager.install(new DarculaTheme());
 
         //ustawianie ikonki
         frame.setIconImage(
@@ -193,6 +187,7 @@ public class Clicker extends SaveGlobalVariables{
         JPanel clicker = new JPanel();
         JPanel shop = new JPanel();
         JPanel about = new JPanel();
+        JPanel changelog = new JPanel();
 
 
         //dodawanie elementow do zakladki clicker
@@ -206,6 +201,8 @@ public class Clicker extends SaveGlobalVariables{
         about.add(instance.initBugButton());
         about.add(instance.initResetGameButton());
 
+        //dodanie elementu do changelogu
+        new ChangelogPastebin(changelog);
 
         //tworzenie przyciskow
         CreateButton buttons[] = {
@@ -228,6 +225,7 @@ public class Clicker extends SaveGlobalVariables{
         main.add("Clicker", clicker);
         main.add("Shop", shop);
         main.add("About", about);
+        main.add("Changelog", changelog);
 
         //tworzenie i ladowanie plikow
         instance.createAndLoadFile();
@@ -295,7 +293,7 @@ public class Clicker extends SaveGlobalVariables{
         frame.setSize(400, 400);
         frame.setResizable(false);
         frame.setVisible(true);
-
+        new UpdateInformation();
 
     }
 
