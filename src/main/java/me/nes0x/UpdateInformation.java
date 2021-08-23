@@ -17,29 +17,20 @@ public class UpdateInformation {
         BufferedInputStream bufferedInputStream = new BufferedInputStream(urlConnection.getInputStream());
 
 
+        int i = bufferedInputStream.read();
+        characterArrayList.add((char) i);
 
-        int i = 0;
-        while ((i = bufferedInputStream.read()) != -1) {
-            characterArrayList.add((char)i);
-        }
-
-        StringBuilder version = new StringBuilder();
-
-        for (Character charUpdate : characterArrayList) {
-            version.append(charUpdate);
-        }
-
-        if (!version.toString().equalsIgnoreCase("4.0")) {
+        if (!characterArrayList.get(0).equals('3')) {
             int result = JOptionPane.showConfirmDialog(
                     Clicker.getFrame(),
-                    "New version of FoodClicker! " + version + "\nDo you want to update it?",
+                    "New version of FoodClicker! " + characterArrayList.get(0) + ".0" + "\nDo you want to update it?",
                     "Update!",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE
 
             );
             if (result == JOptionPane.YES_OPTION) {
-                java.awt.Desktop.getDesktop().browse(URI.create("https://github.com/Nes0x/FoodClicker/releases/tag/" + version));
+                java.awt.Desktop.getDesktop().browse(URI.create("https://github.com/Nes0x/FoodClicker/releases/tag/" + characterArrayList.get(0) + ".0"));
             }
 
         }
@@ -48,3 +39,7 @@ public class UpdateInformation {
 
     }
 }
+
+
+
+
