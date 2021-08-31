@@ -167,7 +167,6 @@ public class Clicker extends SaveGlobalVariables{
 
         //ustawianie
         LafManager.install(new DarculaTheme());
-        new CheckIfThisRunning();
         frame = new JFrame();
         moneyLabel = new JLabel("Your money: " + getMoney());
         earnLabel = new JLabel("You earn: " + getEarn() + " $ for click");
@@ -230,6 +229,7 @@ public class Clicker extends SaveGlobalVariables{
 
         //tworzenie i ladowanie plikow
         instance.createAndLoadFile();
+        new CheckIfThisRunning();
 
         //aktywowanie auto klikania jesli ulepszenie zostalo kupione
         if (getAutoClick() != 0) {
