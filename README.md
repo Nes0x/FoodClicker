@@ -11,3 +11,4 @@ Gra działa tylko na windowsie.
 
 ![Screenshot 3](https://cdn.discordapp.com/attachments/876772489492070413/878998815603048508/unknown.png)
 
+![Screenshot 3](https://cdn.discordapp.com/attachments/876772489492070413/882629207790878720/unknown.png)
