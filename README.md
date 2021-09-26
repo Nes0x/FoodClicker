@@ -7,7 +7,7 @@ Gra działa tylko na windowsie.
 # Screeny
 ![Screenshot 1](https://cdn.discordapp.com/attachments/876772489492070413/878998745960812604/unknown.png)
 
-![Screenshot 2](https://cdn.discordapp.com/attachments/876772489492070413/878998784628105286/unknown.png)
+![Screenshot 2](https://cdn.discordapp.com/attachments/876772489492070413/891687519954010112/unknown.png)
 
 ![Screenshot 3](https://cdn.discordapp.com/attachments/876772489492070413/878998815603048508/unknown.png)
 
