@@ -13,26 +13,35 @@ import java.util.ArrayList;
 public class Updater {
     public Updater() throws IOException {
         URL url = new URL("");
-        ArrayList<Character> characterArrayList = new ArrayList<>();
+        ArrayList<Character> updateCharacters = new ArrayList<>();
         URLConnection urlConnection = url.openConnection();
 
         BufferedInputStream bufferedInputStream = new BufferedInputStream(urlConnection.getInputStream());
 
 
-        int i = bufferedInputStream.read();
-        characterArrayList.add((char) i);
+        int i = 0;
+        while ((i = bufferedInputStream.read()) != -1) {
+            updateCharacters.add((char)i);
+        }
 
-        if (!characterArrayList.get(0).equals('4')) {
+
+        StringBuilder update = new StringBuilder();
+
+        for (Character character : updateCharacters) {
+            update.append(character);
+        }
+
+        if (!update.toString().equalsIgnoreCase("5.0")) {
             int result = JOptionPane.showConfirmDialog(
                     Clicker.getFrame(),
-                    "New version of FoodClicker! " + characterArrayList.get(0) + ".0" + "\nDo you want to update it?",
+                    "New version of FoodClicker! " + update  + "\nDo you want to update it?",
                     "Update!",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE
 
             );
             if (result == JOptionPane.YES_OPTION) {
-                java.awt.Desktop.getDesktop().browse(URI.create("https://github.com/Nes0x/FoodClicker/releases/tag/" + characterArrayList.get(0) + ".0"));
+                java.awt.Desktop.getDesktop().browse(URI.create("https://github.com/Nes0x/FoodClicker/releases/tag/" + update));
             }
 
         }

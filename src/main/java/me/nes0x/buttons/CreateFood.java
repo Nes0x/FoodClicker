@@ -3,6 +3,7 @@ package me.nes0x.buttons;
 import me.nes0x.Clicker;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -24,6 +25,7 @@ public class CreateFood {
 
         //tworzenie przycisku
         button = new JButton(name + " add " + addToEarn + " $ to earn, cost: " + price + " $");
+        button.setPreferredSize(new Dimension(280, 30));
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
